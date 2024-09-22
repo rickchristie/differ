@@ -13,4 +13,4 @@ Alternatives:
 ## Implementation
 
 Implementation is very simple, but it's not the fastest.
-- Use reflection to convert everything to 
+- Use `json.Marshal` to convert the 
