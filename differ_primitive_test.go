@@ -21,7 +21,7 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 	runRows := func(t *testing.T, rows []*testRow) {
 		for _, r := range rows {
 			t.Run(r.name, func(t *testing.T) {
-				hasChanges, changes, err := Diff(r.key, r.before, r.after, r.allFields)
+				hasChanges, changes, err := Diff(r.key, r.before, r.after)
 				if r.expectError {
 					assert.NotNil(t, err)
 					assert.Equal(t, false, hasChanges)
@@ -55,8 +55,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"int": {
 					Key:       "int",
 					IsChanged: true,
-					Before:    int64(1),
-					After:     int64(2),
+					Before:    1,
+					After:     2,
 				},
 			},
 		},
@@ -70,8 +70,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"int": {
 					Key:       "int",
 					IsChanged: true,
-					Before:    int64(0),
-					After:     int64(2),
+					Before:    0,
+					After:     2,
 				},
 			},
 		},
@@ -85,8 +85,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"int": {
 					Key:       "int",
 					IsChanged: true,
-					Before:    int64(-1),
-					After:     int64(2),
+					Before:    -1,
+					After:     2,
 				},
 			},
 		},
@@ -110,8 +110,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"int": {
 					Key:       "int",
 					IsChanged: true,
-					Before:    int64(1),
-					After:     int64(2),
+					Before:    int8(1),
+					After:     int8(2),
 				},
 			},
 		},
@@ -125,8 +125,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"int": {
 					Key:       "int",
 					IsChanged: true,
-					Before:    int64(0),
-					After:     int64(2),
+					Before:    int8(0),
+					After:     int8(2),
 				},
 			},
 		},
@@ -140,8 +140,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"int": {
 					Key:       "int",
 					IsChanged: true,
-					Before:    int64(-2),
-					After:     int64(2),
+					Before:    int8(-2),
+					After:     int8(2),
 				},
 			},
 		},
@@ -165,8 +165,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"int": {
 					Key:       "int",
 					IsChanged: true,
-					Before:    int64(1),
-					After:     int64(2),
+					Before:    int16(1),
+					After:     int16(2),
 				},
 			},
 		},
@@ -180,8 +180,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"int": {
 					Key:       "int",
 					IsChanged: true,
-					Before:    int64(0),
-					After:     int64(2),
+					Before:    int16(0),
+					After:     int16(2),
 				},
 			},
 		},
@@ -195,8 +195,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"int": {
 					Key:       "int",
 					IsChanged: true,
-					Before:    int64(-1),
-					After:     int64(2),
+					Before:    int16(-1),
+					After:     int16(2),
 				},
 			},
 		},
@@ -220,8 +220,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"int": {
 					Key:       "int",
 					IsChanged: true,
-					Before:    int64(1),
-					After:     int64(2),
+					Before:    int32(1),
+					After:     int32(2),
 				},
 			},
 		},
@@ -235,8 +235,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"int": {
 					Key:       "int",
 					IsChanged: true,
-					Before:    int64(0),
-					After:     int64(2),
+					Before:    int32(0),
+					After:     int32(2),
 				},
 			},
 		},
@@ -250,8 +250,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"int": {
 					Key:       "int",
 					IsChanged: true,
-					Before:    int64(-1),
-					After:     int64(2),
+					Before:    int32(-1),
+					After:     int32(2),
 				},
 			},
 		},
@@ -315,8 +315,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"uint": {
 					Key:       "uint",
 					IsChanged: true,
-					Before:    uint64(1),
-					After:     uint64(2),
+					Before:    uint(1),
+					After:     uint(2),
 				},
 			},
 		},
@@ -330,8 +330,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"uint": {
 					Key:       "uint",
 					IsChanged: true,
-					Before:    uint64(0),
-					After:     uint64(2),
+					Before:    uint(0),
+					After:     uint(2),
 				},
 			},
 		},
@@ -355,8 +355,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"uint": {
 					Key:       "uint",
 					IsChanged: true,
-					Before:    uint64(1),
-					After:     uint64(2),
+					Before:    uint8(1),
+					After:     uint8(2),
 				},
 			},
 		},
@@ -370,8 +370,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"uint": {
 					Key:       "uint",
 					IsChanged: true,
-					Before:    uint64(0),
-					After:     uint64(2),
+					Before:    uint8(0),
+					After:     uint8(2),
 				},
 			},
 		},
@@ -395,8 +395,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"uint": {
 					Key:       "uint",
 					IsChanged: true,
-					Before:    uint64(1),
-					After:     uint64(2),
+					Before:    uint16(1),
+					After:     uint16(2),
 				},
 			},
 		},
@@ -410,8 +410,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"uint": {
 					Key:       "uint",
 					IsChanged: true,
-					Before:    uint64(0),
-					After:     uint64(2),
+					Before:    uint16(0),
+					After:     uint16(2),
 				},
 			},
 		},
@@ -435,8 +435,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"uint": {
 					Key:       "uint",
 					IsChanged: true,
-					Before:    uint64(1),
-					After:     uint64(2),
+					Before:    uint32(1),
+					After:     uint32(2),
 				},
 			},
 		},
@@ -450,8 +450,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"uint": {
 					Key:       "uint",
 					IsChanged: true,
-					Before:    uint64(0),
-					After:     uint64(2),
+					Before:    uint32(0),
+					After:     uint32(2),
 				},
 			},
 		},
@@ -515,8 +515,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"float": {
 					Key:       "float",
 					IsChanged: true,
-					Before:    float64(float32(1.2342)),
-					After:     float64(float32(1.2341)),
+					Before:    float32(float32(1.2342)),
+					After:     float32(float32(1.2341)),
 				},
 			},
 		},
@@ -530,8 +530,8 @@ func TestPrimitive_EqualUnequal(t *testing.T) {
 				"float": {
 					Key:       "float",
 					IsChanged: true,
-					Before:    float64(float32(0.0)),
-					After:     float64(float32(2.78)),
+					Before:    float32(float32(0.0)),
+					After:     float32(float32(2.78)),
 				},
 			},
 		},
